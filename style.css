@@ -1,0 +1,483 @@
+/* ===== Base / Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+    --page-bg: #ECEBF3;
+    --text-color: #000;
+    --heading-color: #000;
+    --border-color: #333;
+    --legend-color: #222;
+    --link-color: #000000;
+    --box-link-color: #000000;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --button-bg: transparent;
+    --button-hover-bg: #000000;
+    --button-hover-text: #ffffff;
+}
+
+body.dark-mode {
+    --page-bg: #15161a;
+    --text-color: #ffffff;
+    --heading-color: #ffffff;
+    --border-color: #b9bdc7;
+    --legend-color: #ffffff;
+    --link-color: #8ab4ff;
+    --box-link-color: #f2f2f2;
+    --shadow-color: rgba(0, 0, 0, 0.35);
+    --button-bg: #23252d;
+    --button-hover-bg: #ffffff;
+    --button-hover-text: #000000;
+}
+
+/* ===== Page Structure ===== */
+html {
+    background-color: var(--page-bg);
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--page-bg);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 30px auto 60px;
+}
+
+header h1 {
+    margin-right: 20px;
+    color: var(--heading-color);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+nav a {
+    color: var(--link-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 24px;
+}
+
+/* ===== Portfolio Content Blocks ===== */
+.portrait {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 1%;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+main a[href="index.html"] {
+    color: var(--box-link-color);
+}
+
+.whoami-text {
+    flex: 1;
+    line-height: 1.6;
+    margin-top: -6px;
+}
+
+.box {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 26px;
+    background-color: transparent;
+    box-shadow: 6px 6px 5px var(--shadow-color);
+}
+
+.box.whoami {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px 60px;
+}
+
+.box legend {
+    font-family: Nothing You Could Do, cursive;
+    font-style: italic;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--legend-color);
+}
+
+.box-text {
+    font-family: Cutive Mono, 'Courier New', monospace;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.section-text {
+    line-height: 1.6;
+}
+
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: transparent;
+    box-shadow: 4px 4px 4px var(--shadow-color);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+    transform: translateY(-2px);
+    background-color: var(--shadow-color);
+}
+
+.project-image {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.project-card h3 {
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--heading-color);
+}
+
+.project-card p {
+    font-family: Cutive Mono, 'Courier New', monospace;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.project-button {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 2px;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+}
+
+.box ul {
+    margin-left: 20px;
+    list-style: square;
+}
+
+.box li {
+    list-style: square;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+
+.box li:last-child {
+    margin-bottom: 0;
+}
+
+.box a {
+    color: var(--box-link-color);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.box a:hover {
+    color: var(--link-color);
+}
+
+.box.socials ul {
+    display: flex;
+    gap: 12px;
+    margin-left: 0;
+    list-style: none;
+}
+
+/* ===== Header Controls ===== */
+.theme-toggle {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+}
+
+/* ===== Tools / Password Generator ===== */
+.password-generator .tool-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    align-items: center;
+    margin-bottom: 16px;
+    font-family: Cutive Mono, 'Courier New', monospace;
+}
+
+.password-generator label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.password-generator input[type="number"] {
+    width: 72px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+}
+
+.password-generator button {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.password-generator button:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+}
+
+#password-output {
+    display: block;
+    word-break: break-all;
+    padding: 12px;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    min-height: 2.5em;
+}
+
+.tools-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.tool-card {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 6px 6px 5px var(--shadow-color);
+    background-color: transparent;
+}
+
+.tool-card-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 26px;
+    border: 0;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: left;
+    font-family: Nothing You Could Do, cursive;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.tool-card-toggle:hover,
+.tool-card-toggle:focus-visible {
+    background-color: var(--shadow-color);
+}
+
+.tool-card-title {
+    font-weight: 700;
+}
+
+.tool-card-hint {
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.tool-card .tool-panel {
+    margin: 0 20px 20px;
+    border-top: 1px solid var(--border-color);
+    padding: 16px 0 0;
+}
+
+.tool-panel {
+    padding: 0 26px 26px;
+    border-top: 1px solid var(--border-color);
+}
+
+.notebook-panel {
+    padding-top: 16px;
+}
+
+.notebook-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.note-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.note-breadcrumbs button {
+    border: 0;
+    background: transparent;
+    color: var(--link-color);
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.note-breadcrumbs button.active {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.notebook-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.secondary-btn {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.secondary-btn:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+}
+
+.notebook-editor {
+    width: 100%;
+    min-height: 220px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-color);
+    font-family: Cutive Mono, 'Courier New', monospace;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.notebook-editor:focus {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.tool-card.is-open .tool-card-hint {
+    display: none;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    header h1 {
+        margin-right: 0;
+    }
+
+    .box.whoami {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .whoami-text {
+        margin-top: 0;
+    }
+}

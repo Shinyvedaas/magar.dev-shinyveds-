@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magar Dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Outils</h1>
+        <nav>
+            <a href="https://www.linkedin.com/in/magar-dev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/magar-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.instagram.com/magar_dev/" target="_blank" rel="noopener noreferrer">HackerOne</a>
+            <button class="theme-toggle" type="button" aria-label="Passer au mode sombre">Dark</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <p class="box-text">
+                <a href="index.html">← Retour au portfolio</a>
+            </p>
+        </section>
+
+
+        
+        <section class="tools-grid">
+            <article class="tool-card box" data-tool="password-generator">
+                <button type="button" class="tool-card-toggle" aria-expanded="false" aria-controls="password-generator-panel">
+                    <span class="tool-card-title box-text">Générateur de mots de passe</span>
+                    <span class="tool-card-hint">Cliquez pour ouvrir</span>
+                </button>
+    
+                <div id="password-generator-panel" class="tool-panel password-generator" hidden>
+                    <div class="tool-controls">
+                        <label for="password-length">Longueur</label>
+                        <input type="number" id="password-length" min="8" max="128" value="16">
+    
+                        <label><input type="checkbox" id="include-uppercase" checked> Majuscules</label>
+                        <label><input type="checkbox" id="include-lowercase" checked> Minuscules</label>
+                        <label><input type="checkbox" id="include-numbers" checked> Chiffres</label>
+                        <label><input type="checkbox" id="include-symbols" checked> Symboles</label>
+    
+                        <button type="button" id="generate-password">Générer</button>
+                        <button type="button" id="copy-password">Copier</button>
+                    </div>
+    
+                    <output id="password-output" class="box-text" for="password-length">
+                        Cliquez sur Générer pour créer un mot de passe
+                    </output>
+                </div>
+            </article>
+
+            <article class="tool-card box" data-tool="notebook">
+                <button type="button" class="tool-card-toggle" aria-expanded="false" aria-controls="notebook-panel">
+                    <span class="tool-card-title box-text">Bloc-notes</span>
+                    <span class="tool-card-hint">Cliquez pour ouvrir</span>
+                </button>
+
+                <div id="notebook-panel" class="tool-panel notebook-panel" hidden>
+                    <div class="notebook-toolbar">
+                        <div id="note-breadcrumbs" class="note-breadcrumbs" aria-label="Navigation entre notes"></div>
+                        <div class="notebook-actions">
+                            <button type="button" id="delete-note-btn" class="secondary-btn">Supprimer</button>
+                            <button type="button" id="add-note-btn" class="secondary-btn">+ Nouvelle note</button>
+                        </div>
+                    </div>
+                    <label class="sr-only" for="notebook-input">Notes</label>
+                    <textarea id="notebook-input" class="notebook-editor" rows="10" placeholder="Écrivez vos idées ici..."></textarea>
+                </div>
+            </article>
+        </section>
+    
+        
+    </main>
+    
+    <script src="password_generator.js"></script>
+    <script src="tools.js"></script>
+    <script src="darkmode.js"></script>
+</body>
+</html>

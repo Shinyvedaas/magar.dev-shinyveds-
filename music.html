@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music — Magar Dev</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Music</h1>
+        <nav>
+            <a href="https://www.linkedin.com/in/devendra-magar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Shinyvedaas" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://profile.hackthebox.com/profile/019e12f5-dcb2-7073-abf4-0c61f02a946d?utm_medium=copy_url" target="_blank" rel="noopener noreferrer">Hack the box</a>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark</button>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <p class="box-text">
+                <a href="index.html">← Back to portfolio</a>
+            </p>
+        </section>
+
+        <section>
+            <fieldset class="box music">
+                <legend>cat /music.md</legend>
+
+                <div class="music-stage" id="music-stage">
+                    <div class="music-grid" id="music-grid"></div>
+
+                    <div class="music-preview" id="music-preview" hidden>
+                        <div class="music-preview-card" id="music-preview-card">
+                            <img id="music-preview-image" alt="">
+                            <div class="music-preview-details">
+                                <h2 class="music-preview-title" id="music-preview-title"></h2>
+                                <p class="music-preview-artist" id="music-preview-artist"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+    </main>
+
+    <script src="music.js"></script>
+    <script src="darkmode.js"></script>
+</body>
+</html>

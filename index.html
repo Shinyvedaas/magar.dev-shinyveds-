@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magar Dev</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +16,7 @@
             <a href="https://www.linkedin.com/in/devendra-magar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/Shinyvedaas" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://profile.hackthebox.com/profile/019e12f5-dcb2-7073-abf4-0c61f02a946d?utm_medium=copy_url" target="_blank" rel="noopener noreferrer">Hack the box</a>
-            <button class="theme-toggle" type="button" aria-label="Passer au mode sombre">Dark</button>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark</button>
         </nav>
     </header>
 
@@ -25,11 +26,11 @@
                 <legend>whoami</legend>
 
                 <p class="box-text whoami-text">
-                    Salut ! Moi c'est Dev, un étudiant en informatique et passionné de cybersécurité qui teste des systèmes durant son temps libre.
+                    Hi! I'm Dev, a computer science student and cybersecurity enthusiast who tests systems in my free time.
                     <br>
-                    J'apprends et j'explore encore ce vaste monde de la tech, tout en concrétisant les idées qui me passent par la tête.
+                    I'm still learning and exploring the world of technology while bringing the ideas that come to mind to life.
                     <br>
-                    J'adore voyager au cœur de la nature. N'hésitez pas à faire un tour sur mon LinkedIn.
+                    When I'm not exploring technology, you'll probably find me out in nature. Feel free to check out my LinkedIn.
                 </p>
 
                 <img src="assets/portrait.png" alt="Portrait" class="portrait">
@@ -40,7 +41,48 @@
             <fieldset class="box experience">
                 <legend>cat ~ /experience.md</legend>
 
-                <p class="box-text section-text">J'ai de l'expérience en développement web et en cybersécurité. J'ai travaillé sur divers projets impliquant du développement front-end et back-end, de la conception de bases de données et de la mise en œuvre de solutions de sécurité.</p>
+                <div class="experience-list">
+                    <article class="experience-card">
+                        <div class="experience-logo" aria-hidden="true"></div>
+                        <div class="experience-body">
+                            <div class="experience-top">
+                                <div>
+                                    <h3 class="experience-company">Company</h3>
+                                    <p class="experience-role">Role</p>
+                                    <p class="experience-meta">City, country</p>
+                                </div>
+                                <p class="experience-dates">MM/YYYY — Present</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="experience-logo" aria-hidden="true"></div>
+                        <div class="experience-body">
+                            <h3 class="experience-company">Company</h3>
+
+                            <div class="experience-roles">
+                                <div class="experience-role-row">
+                                    <div>
+                                        <p class="experience-role">Role</p>
+                                        <p class="experience-meta">Team</p>
+                                        <p class="experience-meta">City, country</p>
+                                    </div>
+                                    <p class="experience-dates">MM/YYYY — MM/YYYY</p>
+                                </div>
+
+                                <div class="experience-role-row">
+                                    <div>
+                                        <p class="experience-role">Role</p>
+                                        <p class="experience-meta">Team</p>
+                                        <p class="experience-meta">City, country</p>
+                                    </div>
+                                    <p class="experience-dates">MM/YYYY — MM/YYYY</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </fieldset>
         </section>
 
@@ -53,7 +95,7 @@
                         <img src="assets/portrait.png" alt="Portfolio preview" class="project-image">
                         <div class="project-content">
                             <h3>Portfolio</h3>
-                            <p>Site personnel présentant mon parcours et mes outils.</p>
+                            <p>Personal site showcasing my background and tools.</p>
                             <span class="project-button">GitHub</span>
                         </div>
                     </a>
@@ -61,8 +103,8 @@
                     <a href="https://github.com/magar-dev" target="_blank" rel="noopener noreferrer" class="project-card">
                         <img src="assets/portrait.png" alt="Other projects preview" class="project-image">
                         <div class="project-content">
-                            <h3>Autres projets</h3>
-                            <p>Consultez mes autres repositories GitHub pour découvrir mes réalisations.</p>
+                            <h3>Other projects</h3>
+                            <p>Explore my other GitHub repositories to see what I've built.</p>
                             <span class="project-button">GitHub</span>
                         </div>
                     </a>
@@ -73,17 +115,18 @@
         <!-- <section>
             <fieldset class="box certs">
                 <legend>cat ~ /certs.md</legend>
-                <p class="box-text section-text">J'ai obtenu des certifications en cybersécurité, notamment CompTIA Security+ et Certified Ethical Hacker (CEH). Ces certifications m'ont apporté une base solide dans les principes et pratiques de sécurité.</p>
+                <p class="box-text section-text">I have earned cybersecurity certifications, including CompTIA Security+ and Certified Ethical Hacker (CEH). These certifications gave me a solid foundation in security principles and practices.</p>
             </fieldset>
         </section> -->
 
         <section>
             <fieldset class="box tools">
-                <legend>cat ~ /tools.md</legend>
+                <legend>cat ~ /random.md</legend>
 
-                <ul>
-                    <li><a href="tools.html">Outils</a></li>
-                </ul>
+                <div class="section-actions">
+                    <a class="section-button" href="music.html">Music</a>
+                    <a class="section-button" href="tools.html">Tools</a>
+                </div>
             
             </fieldset>
         </section> <!-- Added missing closing tag here -->

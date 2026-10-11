@@ -210,6 +210,90 @@ main a[href="index.html"] {
     background-color: var(--button-bg);
 }
 
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.experience-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: transparent;
+    box-shadow: 4px 4px 4px var(--shadow-color);
+}
+
+.experience-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.experience-body {
+    flex: 1;
+    min-width: 0;
+    font-family: Cutive Mono, 'Courier New', monospace;
+}
+
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.experience-company {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.experience-role {
+    margin-top: 4px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.experience-meta {
+    margin-top: 2px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.experience-dates {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+.experience-roles {
+    margin-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.experience-role-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-role-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
 .box ul {
     margin-left: 20px;
     list-style: square;
@@ -233,6 +317,121 @@ main a[href="index.html"] {
 
 .box a:hover {
     color: var(--link-color);
+}
+
+.section-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.box a.section-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+}
+
+.box a.section-button:hover,
+.box a.section-button:focus-visible {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    text-decoration: none;
+}
+
+.music-stage {
+    position: relative;
+    min-height: 420px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #1a1b20;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.music-cover-button {
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: transform 0.2s ease;
+}
+
+.music-cover-button:hover,
+.music-cover-button:focus-visible {
+    transform: translateY(-2px);
+}
+
+.music-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 388px;
+}
+
+.music-preview[hidden],
+.music-grid[hidden] {
+    display: none;
+}
+
+.music-preview-card {
+    padding: 0 0 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #1a1b20;
+    overflow: hidden;
+    width: min(320px, 80%);
+    box-shadow: 6px 6px 5px var(--shadow-color);
+}
+
+.music-preview-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.music-preview-details {
+    padding: 14px 16px 0;
+    color: #ffffff;
+    font-family: Cutive Mono, 'Courier New', monospace;
+}
+
+.music-preview-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.music-preview-artist {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    opacity: 0.75;
 }
 
 .box.socials ul {
@@ -479,5 +678,19 @@ main a[href="index.html"] {
 
     .whoami-text {
         margin-top: 0;
+    }
+
+    .experience-top,
+    .experience-role-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .experience-dates {
+        white-space: normal;
+    }
+
+    .music-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

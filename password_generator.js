@@ -26,7 +26,7 @@ function buildCharset() {
 function generatePassword() {
     const charset = buildCharset();
     if (!charset) {
-        output.textContent = 'Sélectionnez au moins un type de caractère.';
+        output.textContent = 'Select at least one character type.';
         return;
     }
 
@@ -46,15 +46,15 @@ function generatePassword() {
 
 async function copyPassword() {
     const password = output.textContent;
-    // Updated strings below to match the French context ("Cliquez" or "Sélectionnez")
-    if (!password || password.startsWith('Cliquez') || password.startsWith('Sélectionnez')) return;
+    // Ignore status messages instead of treating them as generated passwords.
+    if (!password || password.startsWith('Click') || password.startsWith('Select') || password.startsWith('Copy failed')) return;
 
     try {
         await navigator.clipboard.writeText(password);
-        copyBtn.textContent = 'Copié !';
-        setTimeout(() => { copyBtn.textContent = 'Copier'; }, 1500);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
     } catch {
-        output.textContent = 'Échec de la copie — sélectionnez et copiez manuellement.';
+        output.textContent = 'Copy failed. Select and copy it manually.';
     }
 }
 

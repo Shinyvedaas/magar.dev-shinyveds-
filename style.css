@@ -7,7 +7,7 @@
 
 /* ===== Theme Variables ===== */
 :root {
-    --page-bg: #ECEBF3;
+    --page-bg: #F0EBE3;
     --text-color: #000;
     --heading-color: #000;
     --border-color: #333;
@@ -15,6 +15,7 @@
     --link-color: #000000;
     --box-link-color: #000000;
     --shadow-color: rgba(0, 0, 0, 0.08);
+    --faq-label-bg: #F6F5F2;
     --button-bg: transparent;
     --button-hover-bg: #000000;
     --button-hover-text: #ffffff;
@@ -29,6 +30,7 @@ body.dark-mode {
     --link-color: #8ab4ff;
     --box-link-color: #f2f2f2;
     --shadow-color: rgba(0, 0, 0, 0.35);
+    --faq-label-bg: #23252d;
     --button-bg: #23252d;
     --button-hover-bg: #ffffff;
     --button-hover-text: #000000;
@@ -156,7 +158,7 @@ main a[href="index.html"] {
     padding: 14px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #F6F5F2;
     box-shadow: 4px 4px 4px var(--shadow-color);
     text-decoration: none;
     color: var(--text-color);
@@ -224,7 +226,7 @@ main a[href="index.html"] {
     padding: 14px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #F6F5F2;
     box-shadow: 4px 4px 4px var(--shadow-color);
 }
 
@@ -232,6 +234,7 @@ main a[href="index.html"] {
     width: 48px;
     height: 48px;
     flex-shrink: 0;
+    object-fit: contain;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: transparent;
@@ -521,7 +524,7 @@ main a[href="index.html"] {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 6px 6px 5px var(--shadow-color);
-    background-color: transparent;
+    background-color: #F6F5F2;
 }
 
 .tool-card-toggle {
@@ -656,6 +659,118 @@ main a[href="index.html"] {
 
 .tool-card.is-open .tool-card-hint {
     display: none;
+}
+
+/* ===== FAQ ===== */
+.faq-intro {
+    font-family: Cutive Mono, 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+.faq-category {
+    margin-top: 26px;
+}
+
+.faq-category-title {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 4px 10px;
+    border-left: 3px solid var(--border-color);
+    color: var(--heading-color);
+    background-color: var(--faq-label-bg);
+    font-family: Cutive Mono, 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.faq-list {    
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item + .faq-item {
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 4px;
+    color: var(--heading-color);
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 3px;
+}
+
+.faq-toggle {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: var(--text-color);
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    background-color: currentColor;
+    content: "";
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease;
+}
+
+.faq-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item[open] .faq-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+    background-color: var(--faq-label-bg);
+}
+
+.faq-item[open] .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.faq-answer-inner p {
+    padding: 0 36px 18px 4px;
+    font-family: Cutive Mono, 'Courier New', monospace;
+    line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-toggle::before,
+    .faq-toggle::after,
+    .faq-answer {
+        transition: none;
+    }
 }
 
 /* ===== Responsive Layout ===== */

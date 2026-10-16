@@ -165,10 +165,24 @@ main a[href="index.html"] {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.box a.project-card {
+    text-decoration: none;
+}
+
 .project-card:hover,
 .project-card:focus-visible {
     transform: translateY(-2px);
     background-color: var(--shadow-color);
+}
+
+body.dark-mode .box a.project-card {
+    color: #fff;
+    background-color: var(--page-bg);
+}
+
+body.dark-mode .project-card:hover,
+body.dark-mode .project-card:focus-visible {
+    background-color: #23252d;
 }
 
 .project-image {
@@ -190,6 +204,11 @@ main a[href="index.html"] {
     font-family: Cutive Mono, 'Courier New', monospace;
     font-size: 1rem;
     color: var(--heading-color);
+}
+
+body.dark-mode .project-card h3,
+body.dark-mode .project-button {
+    color: #fff;
 }
 
 .project-card p {
@@ -230,6 +249,11 @@ main a[href="index.html"] {
     box-shadow: 4px 4px 4px var(--shadow-color);
 }
 
+body.dark-mode .experience-card {
+    color: #fff;
+    background-color: var(--page-bg);
+}
+
 .experience-logo {
     width: 48px;
     height: 48px;
@@ -257,6 +281,10 @@ main a[href="index.html"] {
     font-size: 1rem;
     font-weight: 700;
     color: var(--heading-color);
+}
+
+body.dark-mode .experience-company {
+    color: #fff;
 }
 
 .experience-role {

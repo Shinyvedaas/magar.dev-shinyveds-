@@ -14,49 +14,78 @@ const CHARS = {
     symbols: '!@#$%^&*()-_=+[]{}|;:,.<>?',
 };
 
-function buildCharset() {
-    let charset = '';
-    if (uppercase.checked) charset += CHARS.uppercase;
-    if (lowercase.checked) charset += CHARS.lowercase;
-    if (numbers.checked) charset += CHARS.numbers;
-    if (symbols.checked) charset += CHARS.symbols;
-    return charset;
+let generatedPassword = '';
+
+// Rejection sampling avoids the modulo bias of mapping random integers to a character set.
+function randomIndex(maximum) {
+    const range = 0x100000000;
+    const limit = Math.floor(range / maximum) * maximum;
+    const value = new Uint32Array(1);
+
+    do {
+        crypto.getRandomValues(value);
+    } while (value[0] >= limit);
+
+    return value[0] % maximum;
 }
 
 function generatePassword() {
-    const charset = buildCharset();
-    if (!charset) {
+    const selectedSets = [];
+    if (uppercase.checked) selectedSets.push(CHARS.uppercase);
+    if (lowercase.checked) selectedSets.push(CHARS.lowercase);
+    if (numbers.checked) selectedSets.push(CHARS.numbers);
+    if (symbols.checked) selectedSets.push(CHARS.symbols);
+
+    if (selectedSets.length === 0) {
+        generatedPassword = '';
         output.textContent = 'Select at least one character type.';
         return;
     }
 
-    const length = Math.min(128, Math.max(8, Number(lengthInput.value) || 16));
+    const requestedLength = Number(lengthInput.value);
+    const length = Math.min(128, Math.max(8, Math.trunc(requestedLength) || 16));
     lengthInput.value = length;
 
-    const bytes = new Uint32Array(length);
-    crypto.getRandomValues(bytes);
+    const charset = selectedSets.join('');
+    const characters = selectedSets.map((set) => set[randomIndex(set.length)]);
 
-    let password = '';
-    for (let i = 0; i < length; i++) {
-        password += charset[bytes[i] % charset.length];
+    while (characters.length < length) {
+        characters.push(charset[randomIndex(charset.length)]);
     }
 
-    output.textContent = password;
+    // Shuffle required characters so the selected categories are not predictable by position.
+    for (let index = characters.length - 1; index > 0; index -= 1) {
+        const swapIndex = randomIndex(index + 1);
+        [characters[index], characters[swapIndex]] = [characters[swapIndex], characters[index]];
+    }
+
+    generatedPassword = characters.join('');
+    output.textContent = generatedPassword;
 }
 
 async function copyPassword() {
-    const password = output.textContent;
-    // Ignore status messages instead of treating them as generated passwords.
-    if (!password || password.startsWith('Click') || password.startsWith('Select') || password.startsWith('Copy failed')) return;
+    if (!generatedPassword) return;
 
     try {
-        await navigator.clipboard.writeText(password);
+        await navigator.clipboard.writeText(generatedPassword);
         copyBtn.textContent = 'Copied!';
         setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
-    } catch {
-        output.textContent = 'Copy failed. Select and copy it manually.';
+    } catch (error) {
+        console.error('Could not copy the generated password.', error);
+        copyBtn.textContent = 'Copy failed';
+        setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
     }
 }
 
-generateBtn.addEventListener('click', generatePassword);
-copyBtn.addEventListener('click', copyPassword);
+if (lengthInput && uppercase && lowercase && numbers && symbols && generateBtn && copyBtn && output) {
+    generateBtn.addEventListener('click', () => {
+        try {
+            generatePassword();
+        } catch (error) {
+            generatedPassword = '';
+            output.textContent = 'Password generation failed. Please try again.';
+            console.error('Could not generate a secure password.', error);
+        }
+    });
+    copyBtn.addEventListener('click', copyPassword);
+}

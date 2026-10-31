@@ -13,9 +13,9 @@
     <header>
         <h1>Tools</h1>
         <nav>
-            <a href="https://www.linkedin.com/in/magar-dev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/magar-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.instagram.com/magar_dev/" target="_blank" rel="noopener noreferrer">HackerOne</a>
+            <a href="https://www.linkedin.com/in/devendra-magar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Shinyvedaas" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://profile.hackthebox.com/profile/019e12f5-dcb2-7073-abf4-0c61f02a946d?utm_medium=copy_url" target="_blank" rel="noopener noreferrer">HackerOne</a>
             <button class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark</button>
         </nav>
     </header>
@@ -29,28 +29,28 @@
         </section>
 
 
-        
+
         <section class="tools-grid">
             <article class="tool-card box" data-tool="password-generator">
                 <button type="button" class="tool-card-toggle" aria-expanded="false" aria-controls="password-generator-panel">
                     <span class="tool-card-title box-text">Password Generator</span>
                     <span class="tool-card-hint">Click to open</span>
                 </button>
-    
+
                 <div id="password-generator-panel" class="tool-panel password-generator" hidden>
                     <div class="tool-controls">
                         <label for="password-length">Length</label>
                         <input type="number" id="password-length" min="8" max="128" value="16">
-    
+
                         <label><input type="checkbox" id="include-uppercase" checked> Uppercase</label>
                         <label><input type="checkbox" id="include-lowercase" checked> Lowercase</label>
                         <label><input type="checkbox" id="include-numbers" checked> Numbers</label>
                         <label><input type="checkbox" id="include-symbols" checked> Symbols</label>
-    
+
                         <button type="button" id="generate-password">Generate</button>
                         <button type="button" id="copy-password">Copy</button>
                     </div>
-    
+
                     <output id="password-output" class="box-text" for="password-length">
                         Click Generate to create a password
                     </output>
@@ -65,7 +65,7 @@
 
                 <div id="notebook-panel" class="tool-panel notebook-panel" hidden>
                     <div class="notebook-toolbar">
-                            <div id="note-breadcrumbs" class="note-breadcrumbs" aria-label="Note navigation"></div>
+                        <div id="note-breadcrumbs" class="note-breadcrumbs" role="group" aria-label="Note navigation"></div>
                         <div class="notebook-actions">
                             <button type="button" id="delete-note-btn" class="secondary-btn">Delete</button>
                             <button type="button" id="add-note-btn" class="secondary-btn">+ New note</button>
@@ -76,10 +76,10 @@
                 </div>
             </article>
         </section>
-    
-        
+
+
     </main>
-    
+
     <script src="password_generator.js"></script>
     <script src="tools.js"></script>
     <script src="darkmode.js"></script>

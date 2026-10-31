@@ -1,0 +1,30 @@
+name: Site checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate HTML and JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Parse every root-level script and stop on the first syntax error.
+      - name: Check JavaScript syntax
+        run: for file in *.js; do node --check "$file" || exit 1; done
+
+      # Validate all site pages using the same pinned version documented in README.
+      - name: Validate HTML
+        run: npx --yes html-validate@10.5.0 *.html

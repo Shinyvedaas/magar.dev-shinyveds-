@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travels — Magar Dev</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Travels</h1>
+        <nav>
+            <a href="https://www.linkedin.com/in/devendra-magar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Shinyvedaas" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://profile.hackthebox.com/profile/019e12f5-dcb2-7073-abf4-0c61f02a946d?utm_medium=copy_url" target="_blank" rel="noopener noreferrer">Hack the box</a>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark</button>
+        </nav>
+    </header>
+
+    <main class="travels-main">
+        <section>
+            <p class="box-text">
+                <a href="index.html">← Back to portfolio</a>
+            </p>
+        </section>
+
+        <section>
+            <fieldset class="box travel-box">
+                <legend>cat ~ /travels.md</legend>
+                <div class="travel-layout">
+                    <div class="globe-panel">
+                        <canvas id="travel-globe" class="travel-globe" width="480" height="480" tabindex="0" role="img" aria-label="Interactive 360-degree pixelated globe with country borders. Drag in any direction to rotate, use arrow keys to rotate, plus or minus to zoom, and hover over a pin to see its place name."></canvas>
+                        <div id="globe-tooltip" class="globe-tooltip" role="status" aria-live="polite" hidden></div>
+                        <div class="globe-controls" role="group" aria-label="Globe controls">
+                            <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+                            <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+                            <button type="button" id="reset-globe">Reset view</button>
+                        </div>
+                        <p class="globe-hint">Drag in any direction · arrow keys to rotate · hover over a pin</p>
+                        <div class="travel-legend" role="group" aria-label="Map legend">
+                            <p><span class="travel-dot visited-dot"></span>Visited</p>
+                            <p><span class="travel-dot bucket-dot"></span>Bucket list</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="travel-edit-hint">Map boundaries: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>.</p>
+            </fieldset>
+        </section>
+    </main>
+
+    <script src="travels.js"></script>
+    <script src="darkmode.js"></script>
+</body>
+</html>

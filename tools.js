@@ -25,16 +25,41 @@ const deleteNoteButton = document.getElementById('delete-note-btn');
 const breadcrumbs = document.getElementById('note-breadcrumbs');
 
 if (notebookInput && addNoteButton && deleteNoteButton && breadcrumbs) {
-    let notes = JSON.parse(localStorage.getItem('portfolio-notebook-notes') || '[]');
-
-    if (notes.length === 0) {
-        notes = [''];
-    }
-
+    const notesStorageKey = 'portfolio-notebook-notes';
+    let notes = loadNotes();
     let currentNoteIndex = 0;
 
+    // Keep a blank note available if browser storage is empty, invalid, or unavailable.
+    function loadNotes() {
+        let savedNotes;
+        try {
+            savedNotes = localStorage.getItem(notesStorageKey);
+        } catch (error) {
+            console.error('Could not read saved notebook notes.', error);
+            return [''];
+        }
+
+        if (savedNotes === null) return [''];
+
+        try {
+            const parsedNotes = JSON.parse(savedNotes);
+            if (Array.isArray(parsedNotes) && parsedNotes.every((note) => typeof note === 'string')) {
+                return parsedNotes.length > 0 ? parsedNotes : [''];
+            }
+            console.error('Saved notebook data is invalid; starting with a blank note.');
+        } catch (error) {
+            console.error('Could not parse saved notebook notes; starting with a blank note.', error);
+        }
+
+        return [''];
+    }
+
     function saveNotes() {
-        localStorage.setItem('portfolio-notebook-notes', JSON.stringify(notes));
+        try {
+            localStorage.setItem(notesStorageKey, JSON.stringify(notes));
+        } catch (error) {
+            console.error('Could not save notebook notes.', error);
+        }
     }
 
     function renderNote() {
@@ -43,7 +68,7 @@ if (notebookInput && addNoteButton && deleteNoteButton && breadcrumbs) {
     }
 
     function renderBreadcrumbs() {
-        breadcrumbs.innerHTML = '';
+        breadcrumbs.replaceChildren();
 
         notes.forEach((_, index) => {
             const crumb = document.createElement('button');

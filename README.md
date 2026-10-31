@@ -11,6 +11,10 @@
   destinations.
 - **Theme switcher:** dark and light themes are available across the pages.
 
+The globe texture is rendered from Natural Earth's public-domain Admin 0 -
+Countries dataset, version 5.1.1. The Travels page links to the dataset and
+includes its recommended attribution.
+
 The notebook and theme preference are saved in the browser's local storage.
 They stay on the visitor's device and are not sent to a server by this site.
 
@@ -30,10 +34,10 @@ You can open `index.html` directly in a browser. For a more realistic preview,
 serve the project directory locally. If Python 3 is installed, run:
 
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 5000
 ```
 
-Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
+Then open <http://localhost:5000>. Stop the server with `Ctrl+C`.
 
 ## Project structure
 
